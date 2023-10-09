@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  correo-app:
+    build:
+      context: ./cluster-correo # Ruta al directorio de la aplicación
+    image: correo-app-image
+    container_name: correo-app
+    volumes:
+      - ./volumen-correo-app:/app # Mapeo del volumen
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: overlay
